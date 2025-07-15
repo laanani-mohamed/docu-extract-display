@@ -139,123 +139,158 @@ const DocumentUploader = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-6">
-      <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-          Extracteur de Documents d'Assurance
-        </h1>
-        <p className="text-muted-foreground">
-          Uploadez vos polices d'assurance (images) ou constats d'accident (PDF)
-        </p>
-      </div>
-
-      <Card className="shadow-elegant border-0 bg-card/80 backdrop-blur-sm">
-        <CardContent className="p-8">
-          <div
-            {...getRootProps()}
-            className={`
-              border-2 border-dashed rounded-lg p-8 text-center transition-all cursor-pointer
-              ${isDragActive 
-                ? 'border-primary bg-primary/5 shadow-glow' 
-                : 'border-border hover:border-primary/50 hover:bg-primary/5'
-              }
-            `}
-          >
-            <input {...getInputProps()} />
-            
-            <div className="space-y-4">
-              <div className="flex justify-center">
-                <Upload className="h-12 w-12 text-primary" />
-              </div>
-              
-              <div>
-                <p className="text-lg font-medium">
-                  {isDragActive 
-                    ? "Déposez votre fichier ici..." 
-                    : "Glissez-déposez votre document ou cliquez pour sélectionner"
-                  }
-                </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Formats acceptés: PDF, JPEG, PNG (max 10MB)
-                </p>
-              </div>
-
-              <div className="flex justify-center gap-2">
-                <Badge variant="outline" className="bg-primary/10">
-                  <FileText className="h-3 w-3 mr-1" />
-                  PDF
-                </Badge>
-                <Badge variant="outline" className="bg-accent/10">
-                  <Image className="h-3 w-3 mr-1" />
-                  JPEG/PNG
-                </Badge>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-subtle">
+      <div className="container max-w-5xl mx-auto px-6 py-12">
+        {/* Header Section */}
+        <div className="text-center space-y-6 mb-12 animate-fade-in">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-primary shadow-glow mb-4">
+            <Upload className="h-8 w-8 text-primary-foreground" />
           </div>
-        </CardContent>
-      </Card>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            Extracteur de Documents
+            <span className="block text-primary">d'Assurance</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Uploadez vos polices d'assurance ou constats d'accident en toute sécurité. 
+            Notre système extrait automatiquement les informations importantes.
+          </p>
+        </div>
 
-      {uploadedFile && (
-        <Card className="shadow-elegant border-0">
-          <CardHeader className="pb-3">
-            <CardTitle className="flex items-center gap-2">
-              {isProcessing ? (
-                <AlertTriangle className="h-5 w-5 text-accent animate-pulse" />
-              ) : (
-                <CheckCircle className="h-5 w-5 text-success" />
-              )}
-              Fichier uploadé
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                {uploadedFile.type === 'application/pdf' ? (
-                  <FileText className="h-8 w-8 text-destructive" />
-                ) : (
-                  <Image className="h-8 w-8 text-accent" />
-                )}
-                <div>
-                  <p className="font-medium">{uploadedFile.name}</p>
+        {/* Upload Area */}
+        <Card className="shadow-elegant border-0 bg-gradient-card backdrop-blur-sm animate-scale-in">
+          <CardContent className="p-0">
+            <div
+              {...getRootProps()}
+              className={`
+                relative overflow-hidden rounded-lg p-12 text-center transition-all cursor-pointer
+                ${isDragActive 
+                  ? 'bg-primary/8 border-2 border-primary border-dashed shadow-glow' 
+                  : 'bg-card/50 border-2 border-dashed border-border hover:border-primary/60 hover:bg-primary/3'
+                }
+              `}
+            >
+              <input {...getInputProps()} />
+              
+              {/* Background decoration */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
+              
+              <div className="relative space-y-6">
+                <div className="flex justify-center">
+                  <div className={`p-6 rounded-full transition-all ${isDragActive ? 'bg-primary/20 scale-110' : 'bg-primary/10'}`}>
+                    <Upload className={`h-12 w-12 transition-colors ${isDragActive ? 'text-primary animate-pulse-glow' : 'text-primary'}`} />
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {isDragActive 
+                      ? "Déposez votre fichier ici" 
+                      : "Glissez-déposez votre document"
+                    }
+                  </h3>
+                  <p className="text-muted-foreground">
+                    ou <span className="text-primary font-medium">cliquez pour parcourir</span> vos fichiers
+                  </p>
                   <p className="text-sm text-muted-foreground">
-                    {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB
+                    Formats acceptés: PDF, JPEG, PNG • Taille max: 10MB
                   </p>
                 </div>
-              </div>
-              
-              <div className="flex gap-2">
-                {isProcessing && (
-                  <Badge variant="outline" className="bg-accent/10">
-                    Traitement en cours...
-                  </Badge>
-                )}
-                <Button variant="outline" size="sm" onClick={resetUpload}>
-                  <XCircle className="h-4 w-4 mr-1" />
-                  Supprimer
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      )}
 
-      {extractedData && (
-        <Card className="shadow-elegant border-0">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-success" />
-              Données extraites
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="bg-muted/30 rounded-lg p-4">
-              <pre className="text-sm overflow-auto whitespace-pre-wrap font-mono">
-                {JSON.stringify(extractedData.data, null, 2)}
-              </pre>
+                <div className="flex justify-center gap-3 pt-2">
+                  <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary">
+                    <FileText className="h-3 w-3 mr-1" />
+                    Constats PDF
+                  </Badge>
+                  <Badge variant="outline" className="bg-accent/10 border-accent/20 text-accent">
+                    <Image className="h-3 w-3 mr-1" />
+                    Polices d'assurance
+                  </Badge>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
-      )}
+
+        {uploadedFile && (
+          <Card className="shadow-soft border border-border/50 animate-fade-in">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-3">
+                {isProcessing ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                    <span className="text-primary">Analyse en cours...</span>
+                  </div>
+                ) : (
+                  <>
+                    <CheckCircle className="h-5 w-5 text-success" />
+                    <span className="text-success">Fichier traité</span>
+                  </>
+                )}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
+                <div className="flex items-center gap-4">
+                  <div className={`p-3 rounded-lg ${uploadedFile.type === 'application/pdf' ? 'bg-destructive/10' : 'bg-accent/10'}`}>
+                    {uploadedFile.type === 'application/pdf' ? (
+                      <FileText className="h-6 w-6 text-destructive" />
+                    ) : (
+                      <Image className="h-6 w-6 text-accent" />
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">{uploadedFile.name}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB • {uploadedFile.type === 'application/pdf' ? 'Constat d\'accident' : 'Police d\'assurance'}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  {isProcessing && (
+                    <Badge variant="outline" className="bg-primary/10 border-primary/20 text-primary animate-pulse-glow">
+                      Extraction des données...
+                    </Badge>
+                  )}
+                  <Button variant="outline" size="sm" onClick={resetUpload} className="hover:bg-destructive/10">
+                    <XCircle className="h-4 w-4 mr-1" />
+                    Supprimer
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {extractedData && (
+          <Card className="shadow-elegant border-0 bg-gradient-card animate-fade-in">
+            <CardHeader className="pb-4">
+              <CardTitle className="flex items-center gap-3">
+                <div className="p-2 bg-success/10 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-success" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-success">Extraction réussie</h3>
+                  <p className="text-sm text-muted-foreground font-normal">
+                    Les données ont été extraites avec succès
+                  </p>
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="bg-muted/20 rounded-lg border border-border/50 p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-2 h-2 bg-success rounded-full animate-pulse" />
+                  <span className="text-sm font-medium text-muted-foreground">Données structurées</span>
+                </div>
+                <pre className="text-sm overflow-auto whitespace-pre-wrap font-mono text-foreground leading-relaxed">
+                  {JSON.stringify(extractedData.data, null, 2)}
+                </pre>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+      </div>
     </div>
   );
 };
