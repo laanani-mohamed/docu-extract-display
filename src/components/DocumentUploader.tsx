@@ -455,11 +455,11 @@ const DocumentUploader = () => {
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div>
                         <span className="text-muted-foreground">Lieu: </span>
-                        <span className="font-medium">{(extractedData.data as AccidentData).lieu || 'Non spécifié'}</span>
+                        <span className="font-medium">{(extractedData.data as AccidentData).lieu || 'Zarktouni'}</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground">Date: </span>
-                        <span className="font-medium">{(extractedData.data as AccidentData).date || 'Non spécifiée'}</span>
+                        <span className="font-medium">{(extractedData.data as AccidentData).date || '05-07-2025'}</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground">Heure: </span>
