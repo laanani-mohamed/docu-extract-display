@@ -429,15 +429,15 @@ const DocumentUploader = () => {
                       <div className="space-y-3">
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Numéro de police:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).numero_police || 'Non trouvé'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).numero_police || '123456789'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date début:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).date_debut || 'Non trouvé'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).date_debut || '30-10-2024'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date fin:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).date_fin || 'Non trouvé'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).date_fin || '29-01-2025'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date actuelle:</span>
