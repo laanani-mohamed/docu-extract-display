@@ -501,22 +501,13 @@ const DocumentUploader = () => {
                           <div className="text-sm space-y-1">
                             <div>Type: {(extractedData.data as AccidentData).partie_a?.vehicule?.type || 'DAC=A'}</div>
                             <div>Plaque: {(extractedData.data as AccidentData).partie_a?.vehicule?.marque || 'LOGAN'}</div>
-                            <div>matriculation: {(extractedData.data as AccidentData).partie_a?.vehicule?.matriculation || '20215-D-08'}</div>
-                            <div>trajet: {(extractedData.data as AccidentData).partie_a?.vehicule?.trajet || 'ENSTAT=IONNE..'}</div>
+                            <div>Matriculation: {(extractedData.data as AccidentData).partie_a?.vehicule?.matriculation || '20215-D-08'}</div>
+                            <div>Venant de: {(extractedData.data as AccidentData).partie_a?.vehicule?.Venant || 'ENSTAT=IONNE..'}</div>
+                            <div>Allant vers: {(extractedData.data as AccidentData).partie_a?.vehicule?.alant || 'Nz'}</div>
                           </div>
                         </div>
                         
-                        <div>
-                          <h6 className="font-medium text-foreground mb-2">Conducteur</h6>
-                          <div className="text-sm space-y-1">
-                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.conducteur?.nom || 'LUI'}</div>
-                            <div>Prénom: {(extractedData.data as AccidentData).partie_a?.conducteur?.prenom || 'MEME'}</div>
-                            <div>Adresse: {(extractedData.data as AccidentData).partie_a?.conducteur?.Adresse || 'AGAD=Z'}</div>
-                            <div>Délivré: {(extractedData.data as AccidentData).partie_a?.conducteur?.Délivré || '31/01/2009'}</div>
-                            <div>Valable: {(extractedData.data as AccidentData).partie_a?.conducteur?.Valable || '21/07/202'}</div>
-                            
-                          </div>
-                        </div>
+                        
                         
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Assureur</h6>
@@ -524,9 +515,21 @@ const DocumentUploader = () => {
                             <div>Nom: {(extractedData.data as AccidentData).partie_a?.assureur?.nom || 'IDHAMOU'}</div>
                             <div>Prénom: {(extractedData.data as AccidentData).partie_a?.assureur?.prenom || 'LAHCEN'}</div>
                             <div>Adresse: {(extractedData.data as AccidentData).partie_a?.assureur?.Adresse || 'CASA'}</div>
-                            <div>Ste Assurance: {(extractedData.data as AccidentData).partie_a?.assureur?.Assurance || 'SANLAN'}</div>
+                            <div>Ste d'Assurance: {(extractedData.data as AccidentData).partie_a?.assureur?.Assurance || 'SANLAN'}</div>
                             <div>NºAttestation: {(extractedData.data as AccidentData).partie_a?.assureur?.Attestation || '05A168789910'}</div>
                             <div>NºPolice: {(extractedData.data as AccidentData).partie_a?.assureur?.Police || 'A411202400929914'}</div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h6 className="font-medium text-foreground mb-2">Conducteur</h6>
+                          <div className="text-sm space-y-1">
+                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.conducteur?.nom || 'LUI'}</div>
+                            <div>Prénom: {(extractedData.data as AccidentData).partie_a?.conducteur?.prenom || 'MEME'}</div>
+                            <div>Adresse: {(extractedData.data as AccidentData).partie_a?.conducteur?.Adresse || 'AGAD=Z'}</div>
+                            <div>Délivré le: {(extractedData.data as AccidentData).partie_a?.conducteur?.Délivré || '31/01/2009'}</div>
+                            <div>Valable jusq'au: {(extractedData.data as AccidentData).partie_a?.conducteur?.Valable || '21/07/202'}</div>
+                            
                           </div>
                         </div>
                       </div>
