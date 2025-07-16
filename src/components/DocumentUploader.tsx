@@ -37,10 +37,18 @@ interface AccidentData {
       nom?: string;
       prenom?: string;
       adresse?: string;
+      Adresse?: string;
+      Délivré?: string;
+      Valable?: string;
     };
     assureur?: {
       nom?: string;
+      prenom?: string;
       numero_contrat?: string;
+      Adresse?: string;
+      Assurance?: string;
+      Attestation?: string;
+      Police?: string;
     };
   };
   partie_b?: {
@@ -55,10 +63,18 @@ interface AccidentData {
       nom?: string;
       prenom?: string;
       adresse?: string;
+      Adresse?: string;
+      Délivré?: string;
+      Valable?: string;
     };
     assureur?: {
       nom?: string;
+      prenom?: string;
       numero_contrat?: string;
+      Adresse?: string;
+      Assurance?: string;
+      Attestation?: string;
+      Police?: string;
     };
   };
 }
