@@ -29,6 +29,9 @@ interface AccidentData {
     vehicule?: {
       type?: string;
       plaque?: string;
+      marque?: string;
+      matriculation?: string;
+      trajet?: string;
     };
     conducteur?: {
       nom?: string;
@@ -44,6 +47,9 @@ interface AccidentData {
     vehicule?: {
       type?: string;
       plaque?: string;
+      marque?: string;
+      matriculation?: string;
+      trajet?: string;
     };
     conducteur?: {
       nom?: string;
