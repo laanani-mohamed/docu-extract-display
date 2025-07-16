@@ -531,6 +531,7 @@ const DocumentUploader = () => {
                             <div>Nom: {(extractedData.data as AccidentData).partie_a?.conducteur?.nom || 'LUI'}</div>
                             <div>Prénom: {(extractedData.data as AccidentData).partie_a?.conducteur?.prenom || 'MEME'}</div>
                             <div>Adresse: {(extractedData.data as AccidentData).partie_a?.conducteur?.Adresse || 'AGAD=Z'}</div>
+                            <div>NºPermis: {(extractedData.data as AccidentData).partie_a?.conducteur?.permis || '42/261556'}</div>
                             <div>Délivré le: {(extractedData.data as AccidentData).partie_a?.conducteur?.Délivré || '31/01/2009'}</div>
                             <div>Valable jusq'au: {(extractedData.data as AccidentData).partie_a?.conducteur?.Valable || '21/07/202'}</div>
                             
@@ -547,24 +548,36 @@ const DocumentUploader = () => {
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Véhicule</h6>
                           <div className="text-sm space-y-1">
-                            <div>Type: {(extractedData.data as AccidentData).partie_b?.vehicule?.type || 'Non spécifié'}</div>
-                            <div>Plaque: {(extractedData.data as AccidentData).partie_b?.vehicule?.plaque || 'Non spécifiée'}</div>
+                            <div>Type: {(extractedData.data as AccidentData).partie_b?.vehicule?.type || 'RYMCO'}</div>
+                            <div>Plaque: {(extractedData.data as AccidentData).partie_b?.vehicule?.marque || 'XCBLV'}</div>
+                            <div>Matriculation: {(extractedData.data as AccidentData).partie_b?.vehicule?.matriculation || '10-000264'}</div>
+                            <div>Venant de: {(extractedData.data as AccidentData).partie_b?.vehicule?.Venant || 'AU NOHAMED'}</div>
+                            <div>Allant vers: {(extractedData.data as AccidentData).partie_b?.vehicule?.alant || '2ERKTOUN5'}</div>
                           </div>
                         </div>
                         
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Conducteur</h6>
                           <div className="text-sm space-y-1">
-                            <div>Nom: {(extractedData.data as AccidentData).partie_b?.conducteur?.nom || 'Non spécifié'}</div>
-                            <div>Prénom: {(extractedData.data as AccidentData).partie_b?.conducteur?.prenom || 'Non spécifié'}</div>
+                            <div>Nom: {(extractedData.data as AccidentData).partie_b?.assureur?.nom || 'SABBAR'}</div>
+                            <div>Prénom: {(extractedData.data as AccidentData).partie_b?.assureur?.prenom || 'NAJOUT'}</div>
+                            <div>Adresse: {(extractedData.data as AccidentData).partie_b?.assureur?.Adresse || 'CASA'}</div>
+                            <div>Ste d'Assurance: {(extractedData.data as AccidentData).partie_b?.assureur? || 'SANLLAN'}</div>
+                            <div>NºAttestation: {(extractedData.data as AccidentData).partie_b?.assureur?.Attestation || '05E179543970'}</div>
+                            <div>NºPolice: {(extractedData.data as AccidentData).partie_b?.assureur?.Police || 'A411202402102209'}</div>
                           </div>
                         </div>
                         
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Assureur</h6>
                           <div className="text-sm space-y-1">
-                            <div>Nom: {(extractedData.data as AccidentData).partie_b?.assureur?.nom || 'Non spécifié'}</div>
-                            <div>Contrat: {(extractedData.data as AccidentData).partie_b?.assureur?.numero_contrat || 'Non spécifié'}</div>
+                            
+                            <div>Nom: {(extractedData.data as AccidentData).partie_b?.conducteur?.nom || 'SOUF=ANZ'}</div>
+                            <div>Prénom: {(extractedData.data as AccidentData).partie_b?.conducteur?.prenom || 'SYOUNS'}</div>
+                            <div>Adresse: {(extractedData.data as AccidentData).partie_b?.conducteur?.Adresse || 'TASA'}</div>
+                            <div>NºPermis: {(extractedData.data as AccidentData).partie_b?.conducteur?.permis || 'BK27769A'}</div>
+                            <div>Délivré le: {(extractedData.data as AccidentData).partie_b?.conducteur?.Délivré || '04/01/2018'}</div>
+                            <div>Valable jusq'au: {(extractedData.data as AccidentData).partie_b?.conducteur?.Valable || '04/01/2028'}</div>
                           </div>
                         </div>
                       </div>
