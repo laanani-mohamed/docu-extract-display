@@ -457,7 +457,7 @@ const DocumentUploader = () => {
                       <div className="space-y-3">
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Numéro de police:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).numero_police || '123456789'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).numero_police || '123456788'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date début:</span>
