@@ -32,6 +32,8 @@ interface AccidentData {
       marque?: string;
       matriculation?: string;
       trajet?: string;
+      Venant?: string;
+      alant?: string;
     };
     conducteur?: {
       nom?: string;
@@ -58,6 +60,8 @@ interface AccidentData {
       marque?: string;
       matriculation?: string;
       trajet?: string;
+      Venant?: string;
+      alant?: string;
     };
     conducteur?: {
       nom?: string;
