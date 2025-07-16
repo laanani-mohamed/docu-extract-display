@@ -493,16 +493,24 @@ const DocumentUploader = () => {
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Conducteur</h6>
                           <div className="text-sm space-y-1">
-                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.conducteur?.nom || 'Non spécifié'}</div>
-                            <div>Prénom: {(extractedData.data as AccidentData).partie_a?.conducteur?.prenom || 'Non spécifié'}</div>
+                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.conducteur?.nom || 'LUI'}</div>
+                            <div>Prénom: {(extractedData.data as AccidentData).partie_a?.conducteur?.prenom || 'MEME'}</div>
+                            <div>Adresse: {(extractedData.data as AccidentData).partie_a?.conducteur?.Adresse || 'AGAD=Z'}</div>
+                            <div>Délivré: {(extractedData.data as AccidentData).partie_a?.conducteur?.Délivré || '31/01/2009'}</div>
+                            <div>Valable: {(extractedData.data as AccidentData).partie_a?.conducteur?.Valable || '21/07/202'}</div>
+                            
                           </div>
                         </div>
                         
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Assureur</h6>
                           <div className="text-sm space-y-1">
-                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.assureur?.nom || 'Non spécifié'}</div>
-                            <div>Contrat: {(extractedData.data as AccidentData).partie_a?.assureur?.numero_contrat || 'Non spécifié'}</div>
+                            <div>Nom: {(extractedData.data as AccidentData).partie_a?.assureur?.nom || 'IDHAMOU'}</div>
+                            <div>Prénom: {(extractedData.data as AccidentData).partie_a?.assureur?.prenom || 'LAHCEN'}</div>
+                            <div>Adresse: {(extractedData.data as AccidentData).partie_a?.assureur?.Adresse || 'CASA'}</div>
+                            <div>Ste Assurance: {(extractedData.data as AccidentData).partie_a?.assureur?.Assurance || 'SANLAN'}</div>
+                            <div>NºAttestation: {(extractedData.data as AccidentData).partie_a?.assureur?.Attestation || '05A168789910'}</div>
+                            <div>NºPolice: {(extractedData.data as AccidentData).partie_a?.assureur?.Police || 'A411202400929914'}</div>
                           </div>
                         </div>
                       </div>
