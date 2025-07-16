@@ -42,6 +42,7 @@ interface AccidentData {
       Adresse?: string;
       Délivré?: string;
       Valable?: string;
+      permis?: string;
     };
     assureur?: {
       nom?: string;
@@ -70,6 +71,7 @@ interface AccidentData {
       Adresse?: string;
       Délivré?: string;
       Valable?: string;
+      permis?: string;
     };
     assureur?: {
       nom?: string;
@@ -562,7 +564,7 @@ const DocumentUploader = () => {
                             <div>Nom: {(extractedData.data as AccidentData).partie_b?.assureur?.nom || 'SABBAR'}</div>
                             <div>Prénom: {(extractedData.data as AccidentData).partie_b?.assureur?.prenom || 'NAJOUT'}</div>
                             <div>Adresse: {(extractedData.data as AccidentData).partie_b?.assureur?.Adresse || 'CASA'}</div>
-                            <div>Ste d'Assurance: {(extractedData.data as AccidentData).partie_b?.assureur? || 'SANLLAN'}</div>
+                            <div>Ste d'Assurance: {(extractedData.data as AccidentData).partie_b?.assureur?.Assurance || 'SANLLAN'}</div>
                             <div>NºAttestation: {(extractedData.data as AccidentData).partie_b?.assureur?.Attestation || '05E179543970'}</div>
                             <div>NºPolice: {(extractedData.data as AccidentData).partie_b?.assureur?.Police || 'A411202402102209'}</div>
                           </div>
