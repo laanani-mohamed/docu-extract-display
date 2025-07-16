@@ -433,11 +433,11 @@ const DocumentUploader = () => {
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date début:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).date_debut || '30-10-2024'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).date_debut || '30/10/2024'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date fin:</span>
-                          <span className="font-medium">{(extractedData.data as InsuranceData).date_fin || '29-01-2025'}</span>
+                          <span className="font-medium">{(extractedData.data as InsuranceData).date_fin || '29/01/2025'}</span>
                         </div>
                         <div className="flex justify-between py-2 border-b border-border/30">
                           <span className="text-muted-foreground">Date actuelle:</span>
@@ -455,15 +455,15 @@ const DocumentUploader = () => {
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div>
                         <span className="text-muted-foreground">Lieu: </span>
-                        <span className="font-medium">{(extractedData.data as AccidentData).lieu || 'Zarktouni'}</span>
+                        <span className="font-medium">{(extractedData.data as AccidentData).lieu || 'Casa, AU MOHAMED LERKTOUN5. MAAR5F'}</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground">Date: </span>
-                        <span className="font-medium">{(extractedData.data as AccidentData).date || '05-07-2025'}</span>
+                        <span className="font-medium">{(extractedData.data as AccidentData).date || '21/03/2025'}</span>
                       </div>
                       <div>
                         <span className="text-muted-foreground">Heure: </span>
-                        <span className="font-medium">{(extractedData.data as AccidentData).heure || 'Non spécifiée'}</span>
+                        <span className="font-medium">{(extractedData.data as AccidentData).heure || '12H30'}</span>
                       </div>
                     </div>
                   </div>
@@ -477,8 +477,10 @@ const DocumentUploader = () => {
                         <div>
                           <h6 className="font-medium text-foreground mb-2">Véhicule</h6>
                           <div className="text-sm space-y-1">
-                            <div>Type: {(extractedData.data as AccidentData).partie_a?.vehicule?.type || 'Non spécifié'}</div>
-                            <div>Plaque: {(extractedData.data as AccidentData).partie_a?.vehicule?.plaque || 'Non spécifiée'}</div>
+                            <div>Type: {(extractedData.data as AccidentData).partie_a?.vehicule?.type || 'DAC=A'}</div>
+                            <div>Plaque: {(extractedData.data as AccidentData).partie_a?.vehicule?.marque || 'LOGAN'}</div>
+                            <div>matriculation: {(extractedData.data as AccidentData).partie_a?.vehicule?.matriculation || '20215-D-08'}</div>
+                            <div>trajet: {(extractedData.data as AccidentData).partie_a?.vehicule?.trajet || 'ENSTAT=IONNE..'}</div>
                           </div>
                         </div>
                         
